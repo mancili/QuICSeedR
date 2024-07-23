@@ -1,0 +1,53 @@
+# Custom Non-Commercial Research License
+
+Copyright (c) 2024 Manci Li
+
+Definitions:
+"Software" refers to the software and associated documentation files covered by this license.
+"Commercial use" means any use of the Software that is primarily intended for or directed 
+toward commercial advantage or monetary compensation. This includes, but is not limited to:
+a. Using the Software to provide services or products to customers
+b. Incorporating the Software into a product or service that generates revenue
+c. Using the Software to generate revenue through consulting or support services
+d. Using the Software in a commercial enterprise's research and development activities
+e. Any use of the Software by a for-profit entity, unless explicitly for non-commercial research purposes
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, and distribute subject to the following conditions:
+
+1. The above copyright notice, definition of commercial use, and this permission 
+   notice shall be included in all copies or substantial portions of the Software.
+
+2. The Software may not be used for any commercial purposes as defined above 
+   without explicit written permission from the copyright holder.
+
+3. All publications, presentations, or other public disclosures that use or 
+   rely on the Software must acknowledge its author by including the following 
+   citation: "[fullname] ([year]). [Software Name]. [URL or DOI if applicable]"
+
+4. For non-commercial research purposes, the Software may be used, copied, 
+   modified, merged, published, distributed, provided that:
+   a. The use does not fall under the definition of commercial use
+   b. The acknowledgment requirement in condition 3 is met
+   c. This license and copyright notice are included
+
+5. Redistributions of the Software must include this license and copyright 
+   notice, must clearly state that the redistribution is for non-commercial 
+   research purposes only, and must maintain the acknowledgment requirement 
+   specified in condition 3.
+
+6. Any person or entity wishing to use the Software for any purpose that falls 
+   under the definition of commercial use must contact the copyright holder to 
+   obtain a separate license agreement.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE, PROVIDED THAT SUCH USE IS FOR NON-COMMERCIAL RESEARCH PURPOSES AS
+DEFINED IN THIS LICENSE. 
+
+For commercial licensing inquiries, please contact: [Your Contact Information]
