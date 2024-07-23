@@ -25,24 +25,15 @@ devtools::install_github("mancili/QuICSeedR")
 
 ## Usage
 
-Here is the workflow for QuICSeedR:
-
-
-```
-
-For more detailed examples and function documentation, please refer to the package vignettes and function help pages.
+For more detailed examples and function documentation, please refer to the function help pages and (manuscript link).
 
 ## Requirements
 
-- R (>= 4.4.0)
-
-## Contributing
-
-Contributions to QuICSeedR are welcome! Please refer to the [contribution guidelines](CONTRIBUTING.md) for more information.
+- R (>= 4.1.0)
 
 ## License
 
-This project is licensed under the MIT License + file LICENSE - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Non-Commercial Research license - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 
