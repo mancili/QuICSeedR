@@ -9,28 +9,28 @@ BulkProcessing(data, do_analysis = TRUE, params = list())
 \arguments{
 \item{data}{Compiled data of experiments.}
 
-\item{do_analysis}{Logical. Whether statistic analysis is included. Default is `TRUE`.}
+\item{do_analysis}{Logical. Whether statistic analysis is included. Default is \code{TRUE}.}
 
 \item{params}{A list of parameters for various processing steps. If a parameter is not
-provided, default values will be used. `control` used in `GetAnalysis()` is required.
+provided, default values will be used. \code{control} used in \code{GetAnalysis()} is required.
 parameters can be provided for the following functions:
 \itemize{
-  \item `ConvertTime`
-  \item `CleanMeta`
-  \item `CleanRaw`
-  \item `GetCalculation`
-  \item `SpreadCalculation`
-  \item `GetAnalysis`
-  \item `SummarizeResult`
+\item \code{ConvertTime}
+\item \code{CleanMeta}
+\item \code{CleanRaw}
+\item \code{GetCalculation}
+\item \code{SpreadCalculation}
+\item \code{GetAnalysis}
+\item \code{SummarizeResult}
 }}
 }
 \value{
 A list containing three elements:
-  \itemize{
-    \item combined_calculation: A data frame of combined calculations from all experiments
-    \item combined_cleanraw: Cleaned raw data for each experiment
-    \item combined_result: A data frame of combined results from all experiments
-  }
+\itemize{
+\item combined_calculation: A data frame of combined calculations from all experiments
+\item combined_cleanraw: Cleaned raw data for each experiment
+\item combined_result: A data frame of combined results from all experiments
+}
 }
 \description{
 This function processes multiple experiments in parallel, performing a series of operations
