@@ -51,4 +51,4 @@ Li, M. (2024). QuICSeedR: Data analysis for fluorophore-assisted seed amplificat
 
 ## Contact
 
-For questions and feedback, please contact Manci Li at li000021@umn.edu.
+For questions and feedback, please contact Dr. Manci Li at li000021@umn.edu.

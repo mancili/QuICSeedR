@@ -74,15 +74,22 @@ BulkProcessing = function(data, do_analysis = TRUE, params = list()) {
     
     analysis <- do.call(GetAnalysis, c(list(calculation_spread), 
                                        params$GetAnalysis %||% list()))
-    } else {}
+    } else if (do_analysis == FALSE) {
+      
+    } else {
+      "Unsupported analysis."
+    }
     
     if (do_analysis) {
     result <- do.call(SummarizeResult, c(list(analysis = analysis, calculation = calculation), 
                                          params$SummarizeResult %||% list()))
-    } else {
+    } else if (do_analysis == FALSE){
     result <- do.call(SummarizeResult, c(list(calculation = calculation), 
                                          params$SummarizeResult %||% list()))
+    } else {
+      "Unsupported analysis."
     }
+    
     subcalculation[[j]] <- calculation
     subcleanraw[[j]] <- raw
     subresult[[j]] <- result
