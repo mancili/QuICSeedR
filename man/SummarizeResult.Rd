@@ -5,10 +5,10 @@
 \title{Summarize Analysis Results}
 \usage{
 SummarizeResult(
-  analysis,
+  analysis = NULL,
   calculation,
-  sig_method = "metric_count",
-  method_threshold = 3
+  sig_method = "xth_percent",
+  method_threshold = 50
 )
 }
 \arguments{
@@ -16,10 +16,12 @@ SummarizeResult(
 
 \item{calculation}{Output of \code{GetCalculation()}.}
 
-\item{sig_method}{Method to determine overall significance.
-Options are "metric_count", "xth_count", or any of the names in the analysis list. Default is "metric_count".}
+\item{sig_method}{Specifies the approach for determining sample-level result.
+Available options include "xth_percent", "metric_count", "xth_count",
+or any metric name present in the analysis list. The default is "xth_percent".}
 
-\item{method_threshold}{Threshold for count when using "metric_count" and "xth_count" method. Default is 3.}
+\item{method_threshold}{Defines the threshold value for the "metric_count",
+"xth_count", and "xth_percent" methods. This parameter defaults to 50.}
 }
 \value{
 A data frame summarizing results of the analysis and calculation, with columns:
@@ -46,7 +48,9 @@ A data frame summarizing results of the analysis and calculation, with columns:
 }
 \description{
 This function combines analysis results from multiple tests with metadata,
-and determines overall significance based on a specified method.
+and determines overall significance based on a specified method. By default, it
+evaluates sample-level result by calculating the percentage of technical replicates
+that exceed the pre-defined threshold.
 }
 \examples{
 \dontrun{
