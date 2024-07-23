@@ -12,7 +12,7 @@ SpreadCalculation(
 )
 }
 \arguments{
-\item{calculation}{A data frame containing the metadata and results of the calculation. Output from `GetCalculation()`.}
+\item{calculation}{A data frame containing the metadata and results of the calculation. Output from \code{GetCalculation()}.}
 
 \item{id_col}{The name of the column in calculation that identifies the content. Default is 'content'.}
 

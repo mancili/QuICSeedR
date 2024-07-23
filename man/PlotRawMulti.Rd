@@ -13,7 +13,7 @@ PlotRawMulti(
 )
 }
 \arguments{
-\item{raw}{Cleaned raw data. Output from `GetCleanRaw`.}
+\item{raw}{Cleaned raw data. Output from \code{GetCleanRaw}.}
 
 \item{samples}{The names of the samples to plot.}
 

@@ -11,7 +11,7 @@ CleanRaw(meta, raw, plate_time, cycle_total)
 
 \item{raw}{Raw fluorescence readings from MARS software.}
 
-\item{plate_time}{Output of `ConvertTime()`.}
+\item{plate_time}{Output of \code{ConvertTime()}.}
 
 \item{cycle_total}{The total number of cycles (rows) to include in the output.}
 }

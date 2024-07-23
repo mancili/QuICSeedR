@@ -5,52 +5,48 @@
 \title{Summarize Analysis Results}
 \usage{
 SummarizeResult(
-  analysis = NULL,
+  analysis,
   calculation,
-  sig_method = "xth_percent",
-  method_threshold = 50
+  sig_method = "metric_count",
+  method_threshold = 3
 )
 }
 \arguments{
-\item{analysis}{Output of `GetAnalysis()`.}
+\item{analysis}{Output of \code{GetAnalysis()}.}
 
-\item{calculation}{Output of `GetCalculation()`.}
+\item{calculation}{Output of \code{GetCalculation()}.}
 
-\item{sig_method}{Specifies the approach for determining sample-level result.
-Available options include "xth_percent", "metric_count", "xth_count", 
-or any metric name present in the analysis list. The default is "xth_percent".}
+\item{sig_method}{Method to determine overall significance.
+Options are "metric_count", "xth_count", or any of the names in the analysis list. Default is "metric_count".}
 
-\item{method_threshold}{Defines the threshold value for the "metric_count", 
-"xth_count", and "xth_percent" methods. This parameter defaults to 50.}
+\item{method_threshold}{Threshold for count when using "metric_count" and "xth_count" method. Default is 3.}
 }
 \value{
 A data frame summarizing results of the analysis and calculation, with columns:
 
 \itemize{
-  \item result: Overall result based on the chosen method
+\item result: Overall result based on the chosen method
 
-  \item position: Location of the sample replications based on plate layout
+\item position: Location of the sample replications based on plate layout
 
-  \item method: Method chosen for determination of the result
+\item method: Method chosen for determination of the result
 
-  \item *_sig: Significance indicator for each metric
+\item *_sig: Significance indicator for each metric
 
-  \item *_p: P-value or adjusted p-value for each metric
+\item *_p: P-value or adjusted p-value for each metric
 
-  \item metric_count: Count of significant results across all analyses
+\item metric_count: Count of significant results across all analyses
 
-  \item xth_count: The number of reactions crossing the fluorescent threshold
+\item xth_count: The number of reactions crossing the fluorescent threshold
 
-  \item total_rep: Total number of replicates
+\item total_rep: Total number of replicates
 
-  \item xth_percent: Percentage of replicates crossing the fluorescent threshold
+\item xth_percent: Percentage of replicates crossing the fluorescent threshold
 }
 }
 \description{
 This function combines analysis results from multiple tests with metadata,
-and determines overall significance based on a specified method. By default, it 
-evaluates sample-level result by calculating the percentage of technical replicates 
-that exceed the pre-defined threshold.
+and determines overall significance based on a specified method.
 }
 \examples{
 \dontrun{

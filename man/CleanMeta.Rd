@@ -19,7 +19,7 @@ CleanMeta(
 
 \item{plate}{A dataframe containing the plate layout information.}
 
-\item{replicate}{A dataframe containing the replicate information. Output of `GetReplicate()`.}
+\item{replicate}{A dataframe containing the replicate information. Output of \code{GetReplicate()}.}
 
 \item{split_content}{Logical, whether to split the content. Default is FALSE.}
 

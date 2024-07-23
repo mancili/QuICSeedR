@@ -18,9 +18,9 @@ GetCalculation(
 )
 }
 \arguments{
-\item{raw}{Cleaned raw data matrix. Output from `CleanRaw()`.}
+\item{raw}{Cleaned raw data matrix. Output from \code{CleanRaw()}.}
 
-\item{meta}{Cleaned meta data. Output from `CleanMeta()`.}
+\item{meta}{Cleaned meta data. Output from \code{CleanMeta()}.}
 
 \item{norm}{Logical. If TRUE, normalization will be performed. Default is FALSE.}
 
@@ -35,7 +35,7 @@ This helps ignore early crossings that may be due to reasons unrelated to seedin
 
 \item{bg_fold}{Background fold for threshold calculation (for 'bg_ratio' method).}
 
-\item{cycle_background}{The cycle number chosen as the background for RAF calculations.}
+\item{cycle_background}{The cycle number chosen as the background for RAF and MPR calculations.}
 
 \item{binw}{Bin width for the MS calculation.}
 }
@@ -44,8 +44,8 @@ A data frame containing the results of the calculation.
 }
 \description{
 This function takes cleaned raw data and performs various analyses,
-including calculating the time to threshold, Rate of Amyloid Formation (RAF), Max Point Ratio (MPR), 
-Max Slope (MS), and whether the reaction crosses the threshold (XTH).
+including calculating the time to threshold, Rate of Amyloid Formation (RAF), Max Point Ratio (MPR),
+, Max Slope (MS), and whether the reaction crosses the threshold (XTH).
 }
 \examples{
 \dontrun{

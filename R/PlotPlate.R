@@ -2,7 +2,8 @@
 #'
 #' This function creates a faceted plot of time series data for each well in a plate layout.
 #'
-#' @param raw A data frame containing the raw plate data. 
+#' @param raw A data frame containing the raw plate data. The first row and
+#'   first two columns are assumed to be metadata and are removed.
 #' @param plate_time Output from `ConvertTime()`.  
 #' @param format Format of plates used in the experiment. 96 or 384. 
 #' @param f_size font size for subtitles.

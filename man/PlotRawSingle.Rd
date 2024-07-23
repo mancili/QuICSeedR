@@ -13,7 +13,7 @@ PlotRawSingle(
 )
 }
 \arguments{
-\item{raw}{Cleaned raw data. Output from `GetCleanRaw`}
+\item{raw}{Cleaned raw data. Output from \code{GetCleanRaw}}
 
 \item{sample}{The name of the sample to plot.}
 

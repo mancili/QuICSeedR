@@ -64,7 +64,7 @@ CleanMeta <- function (raw, plate, replicate, split_content = FALSE, split_by = 
   content <- c(t(content))
   
   if (del_na) {
-    valid_well <- which(!is.na(replicate))
+    valid_well <- which(!is.na(content))
     well <- well[valid_well]
     content <- content[valid_well]
     replicate <- replicate[valid_well]

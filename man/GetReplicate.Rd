@@ -12,18 +12,20 @@ cell contains a sample identifier or NA for empty wells.}
 }
 \value{
 A data frame with the same dimensions as the input plate, where each
-  cell contains the replicate number for the corresponding sample in the
-  input plate.
+cell contains the replicate number for the corresponding sample in the
+input plate.
 }
 \description{
 This function takes a plate layout and generates a corresponding matrix of
 replicate numbers for each sample.
 }
 \note{
-- Sample identifiers are converted to character type before processing.
-- The function assumes that the input plate is organized such that replicate
-  samples are encountered sequentially.
-- The output maintains the column names from the input plate.
+\itemize{
+\item Sample identifiers are converted to character type before processing.
+\item The function assumes that the input plate is organized such that replicate
+samples are encountered sequentially.
+\item The output maintains the column names from the input plate.
+}
 }
 \examples{
 plate <- matrix(

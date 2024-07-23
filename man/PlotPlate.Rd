@@ -7,9 +7,10 @@
 PlotPlate(raw, plate_time, format = 96, f_size = 5, fill = FALSE)
 }
 \arguments{
-\item{raw}{A data frame containing the raw plate data.}
+\item{raw}{A data frame containing the raw plate data. The first row and
+first two columns are assumed to be metadata and are removed.}
 
-\item{plate_time}{Output from `ConvertTime()`.}
+\item{plate_time}{Output from \code{ConvertTime()}.}
 
 \item{format}{Format of plates used in the experiment. 96 or 384.}
 

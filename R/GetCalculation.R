@@ -1,8 +1,8 @@
 #' Perform Calculations
 #'
 #' @description This function takes cleaned raw data and performs various analyses,
-#' including calculating the time to threshold, Rate of Amyloid Formation (RAF), Max Point Ratio (MPR), 
-#' Max Slope (MS), and whether the reaction crosses the threshold (XTH).
+#' including calculating the time to threshold, Rate of Amyloid Formation (RAF), Max Point Ratio (MPR),
+#' , Max Slope (MS), and whether the reaction crosses the threshold (XTH).
 #'
 #' @param raw Cleaned raw data matrix. Output from `CleanRaw()`.
 #' @param meta Cleaned meta data. Output from `CleanMeta()`.
@@ -13,7 +13,7 @@
 #'        This helps ignore early crossings that may be due to reasons unrelated to seeding activity.
 #' @param sd_fold Fold of standard deviation to calculate the threshold for RAF (for 'stdv' method).
 #' @param bg_fold Background fold for threshold calculation (for 'bg_ratio' method).
-#' @param cycle_background The cycle number chosen as the background for RAF calculations.
+#' @param cycle_background The cycle number chosen as the background for RAF and MPR calculations.
 #' @param binw Bin width for the MS calculation.
 #' @return A data frame containing the results of the calculation. 
 #' @examples

@@ -1,4 +1,3 @@
 ^LICENSE\.md$
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^pdf_vignettes/$

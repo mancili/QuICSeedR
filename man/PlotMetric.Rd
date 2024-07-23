@@ -15,7 +15,7 @@ PlotMetric(
 )
 }
 \arguments{
-\item{calculation}{A data frame containing the data to be plotted. Output of `GetCalculation`}
+\item{calculation}{A data frame containing the data to be plotted. Output of \code{GetCalculation}}
 
 \item{x}{Character string specifying the column name for the x-axis. Default is "content".}
 
@@ -33,7 +33,7 @@ PlotMetric(
 A ggplot object.
 }
 \description{
-This function generates a ggplot object with options for boxplot and jittered points. 
+This function generates a ggplot object with options for boxplot and jittered points.
 Additional ggplot2 functions to be applied to the plot.
 }
 \examples{

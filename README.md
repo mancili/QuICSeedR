@@ -1,10 +1,10 @@
-# QuICAnalysis
+# QuICSeedR
 
-[![R-CMD-check](https://github.com/mancili/QuICAnalysis/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/mancili/QuICAnalysis/actions/workflows/R-CMD-check.yml)
+[![R-CMD-check](https://github.com/mancili/QuICSeedR/actions/workflows/R-CMD-check.yml/badge.svg)](https://github.com/mancili/QuICSeedR/actions/workflows/R-CMD-check.yml)
 
 ## Overview
 
-QuICAnalysis is a comprehensive R package for analyzing and visualizing data from fluorophore-assisted seed amplification assays, such as Real-Time Quaking-Induced Conversion (RT-QuIC) and fluorophore-assisted Protein Misfolding Cyclic Amplification (PMCA). This toolkit addresses limitations in existing software by automating data processing, supporting large-scale analysis, and enabling comparative studies of analysis methods.
+QuICSeedR is a comprehensive R package for analyzing and visualizing data from fluorophore-assisted seed amplification assays, such as Real-Time Quaking-Induced Conversion (RT-QuIC) and fluorophore-assisted Protein Misfolding Cyclic Amplification (PMCA). This toolkit addresses limitations in existing software by automating data processing, supporting large-scale analysis, and enabling comparative studies of analysis methods.
 
 ## Features
 
@@ -16,23 +16,29 @@ QuICAnalysis is a comprehensive R package for analyzing and visualizing data fro
 
 ## Installation
 
-You can install the development version of QuICAnalysis from GitHub with:
+You can install the development version of QuICSeedR from GitHub with:
 
 ```R
 # install.packages("devtools")
-devtools::install_github("mancili/QuICAnalysis")
+devtools::install_github("mancili/QuICSeedR")
 ```
 
 ## Usage
 
-Here is the workflow for QuICAnalysis:
+Here is the workflow for QuICSeedR:
 
+
+```
 
 For more detailed examples and function documentation, please refer to the package vignettes and function help pages.
 
 ## Requirements
 
-- R (>= 4.1.0)
+- R (>= 4.4.0)
+
+## Contributing
+
+Contributions to QuICSeedR are welcome! Please refer to the [contribution guidelines](CONTRIBUTING.md) for more information.
 
 ## License
 
@@ -46,10 +52,10 @@ ORCID: [0000-0003-3930-7117](https://orcid.org/0000-0003-3930-7117)
 
 ## Citation
 
-If you use QuICAnalysis in your research, please cite it as follows:
+If you use QuICSeedR in your research, please cite it as follows:
 
 ```
-Li, M. (2024). QuICAnalysis: Data analysis for fluorophore-assisted seed amplification assays. R package version 0.1.0. https://github.com/mancili/QuICAnalysis
+Li, M. (2024). QuICSeedR: Data analysis for fluorophore-assisted seed amplification assays. R package version 0.1.0. https://github.com/mancili/QuICSeedR
 ```
 
 ## Contact

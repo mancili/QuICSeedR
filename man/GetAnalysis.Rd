@@ -14,7 +14,7 @@ GetAnalysis(
 )
 }
 \arguments{
-\item{calculation_spread}{A list of data frames, each representing a calculation spread. Output of `SpreadCaculation()`.}
+\item{calculation_spread}{A list of data frames, each representing a calculation spread. Output of \code{SpreadCaculation()}.}
 
 \item{control}{The name or pattern of the control column in each data frame.}
 
