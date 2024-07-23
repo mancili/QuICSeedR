@@ -14,7 +14,8 @@
 #'
 #' @examples
 #' \dontrun{
-#' analysis <- GetAnalysis(calculation_spread, control = "neg", test = "wilcox", tail = 'greater')
+#' analysis <- GetAnalysis(calculation_spread, control = "neg", test = "wilcox", 
+#'                         alternative = 'greater')
 #' }
 #'
 #' @seealso 

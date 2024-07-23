@@ -35,7 +35,8 @@ comparing each column to a control column using various statistical tests.
 }
 \examples{
 \dontrun{
-analysis <- GetAnalysis(calculation_spread, control = "neg", test = "wilcox", tail = 'greater')
+analysis <- GetAnalysis(calculation_spread, control = "neg", test = "wilcox", 
+                        alternative = 'greater')
 }
 
 }

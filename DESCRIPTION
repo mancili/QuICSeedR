@@ -11,7 +11,7 @@ Authors@R: person(given = "Manci",
                   comment = c(ORCID = "0000-0003-3930-7117"))
 Description: A toolkit for analysis and visualization of data from fluorophore-assisted seed amplification assays, such as such as Real-Time Quaking-Induced Conversion (RT-QuIC) and Fluorophore-Assisted Protein Misfolding Cyclic Amplification (PMCA). 'QuICSeedR' addresses limitations in existing software by automating data processing, supporting large-scale analysis, and enabling comparative studies of analysis methods.
 Imports: WRS2, magrittr, graphics, stats, ggplot2, methods, dplyr, tidyr, tidyselect, rlang
-License: MIT + file LICENSE
+License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
