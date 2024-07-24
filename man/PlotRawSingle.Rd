@@ -8,8 +8,12 @@ PlotRawSingle(
   raw,
   sample,
   legend_position = "bottomright",
+  xlim = NULL,
   ylim = NULL,
-  xlim = NULL
+  custom_colors = NULL,
+  xlab = "Time (h)",
+  ylab = "Fluorescence",
+  linetype = "l"
 )
 }
 \arguments{
@@ -19,10 +23,22 @@ PlotRawSingle(
 
 \item{legend_position}{Position of legend. Default is "topleft".}
 
-\item{ylim}{Numeric vector giving the y coordinate range (relative fluorescence units). If NULL (default), limits are computed from the data.}
-
 \item{xlim}{Numeric vector giving the x coordinate range (hours). If NULL (default), limits are computed from the data.
 Choose from "bottomright", "bottom", "bottomleft", "left", "topleft", "top", "topright", "right" and "center".}
+
+\item{ylim}{Numeric vector giving the y coordinate range (relative fluorescence units). If NULL (default), limits are computed from the data.}
+
+\item{custom_colors}{An optional vector of colors to be used for plotting.
+If NULL (default), the function will use the original color scheme.}
+
+\item{xlab}{Label for x-axis.}
+
+\item{ylab}{Label for y-axis.}
+
+\item{linetype}{The type parameter in plotting functions accepts various values to control the appearance of the plot: "p" draws only points,
+"l" creates lines, "b" combines both points and lines, "c" displays empty points joined by lines, "o" overplots points and lines, "s" and "S" create stair steps,
+"h" produces histogram-like vertical lines, and "n" sets up the plot without drawing any points or lines. For more detailed information on these options,
+refer to the documentation of the plot function.}
 }
 \description{
 The function plots fluorescence for selected sample over time.
@@ -31,4 +47,8 @@ The function plots fluorescence for selected sample over time.
 \dontrun{
 PlotRawSingle(raw = raw, sample = sample)
 }
+
+}
+\references{
+Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) The New S Language. Wadsworth & Brooks/Cole.
 }

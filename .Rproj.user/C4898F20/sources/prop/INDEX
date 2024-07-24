@@ -2,4 +2,7 @@
 ~%2FGitHub%2FQuICSeedR%2FDESCRIPTION="02671894"
 ~%2FGitHub%2FQuICSeedR%2FLICENSE="1FED9929"
 ~%2FGitHub%2FQuICSeedR%2FR%2FGetAnalysis.R="EAAC156B"
+~%2FGitHub%2FQuICSeedR%2FR%2FGetCalculation.R="0DF389D2"
+~%2FGitHub%2FQuICSeedR%2FR%2FPlotRawMulti.R="075E850D"
+~%2FGitHub%2FQuICSeedR%2FR%2FPlotRawSingle.R="E6181643"
 ~%2FR%2FQuICAnalysis_Manuscript%2Fpdf_vignettes%2FBasicTutorial.Rmd="9F5EC774"

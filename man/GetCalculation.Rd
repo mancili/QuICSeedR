@@ -52,3 +52,15 @@ including calculating the time to threshold, Rate of Amyloid Formation (RAF), Ma
 GetCalculation(raw, meta, norm = TRUE, norm_ct = 'pos', 'stdv')
 }
 }
+\references{
+Henderson DM, Davenport KA, Haley NJ, Denkers ND, Mathiason CK, Hoover EA.
+Quantitative assessment of prion infectivity in tissues and body fluids by real-time quaking-induced conversion.
+J Gen Virol. 2015;96(Pt 1):210-219. doi:10.1099/vir.0.069906-0
+
+Haley NJ, Van de Motter A, Carver S, et al. Prion-seeding activity in cerebrospinal fluid of deer with chronic wasting disease.
+PLoS One. 2013;8(11):e81488. doi:10.1371/journal.pone.0081488
+
+Rowden GR, Picasso-Risso C, Li M, Schwabenlander MD, Wolf TM, Larsen PA.
+Standardization of Data Analysis for RT-QuIC-Based Detection of Chronic Wasting Disease. Pathogens.
+2023;12(2):309. doi:10.3390/pathogens12020309
+}

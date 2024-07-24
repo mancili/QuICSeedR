@@ -11,6 +11,9 @@
 #' @param alpha The significance level for determining significance stars. Default is 0.05.
 #'
 #' @return A list of data frames containing the results of the statistical analysis for selected metrics.
+#' @references 
+#' Mair, P., & Wilcox, R. (2020). WRS2: A Collection of Robust Statistical Methods.
+#' https://CRAN.R-project.org/package=WRS2
 #'
 #' @examples
 #' \dontrun{

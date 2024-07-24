@@ -40,6 +40,10 @@ analysis <- GetAnalysis(calculation_spread, control = "neg", test = "wilcox",
 }
 
 }
+\references{
+Mair, P., & Wilcox, R. (2020). WRS2: A Collection of Robust Statistical Methods.
+https://CRAN.R-project.org/package=WRS2
+}
 \seealso{
 \code{\link[stats]{t.test}}, \code{\link[stats]{wilcox.test}}, \code{\link[WRS2]{yuen}}
 }
