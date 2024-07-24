@@ -33,7 +33,7 @@ For more detailed examples and function documentation, please refer to the funct
 
 ## License
 
-This project is licensed under the Non-Commercial Research license - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0) - see the [GPL-3](GPL-3) and [LICENSE](LICENSE) file for details.
 
 ## Author
 
