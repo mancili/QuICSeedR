@@ -4,7 +4,7 @@
 \alias{BulkProcessing}
 \title{Processing and analyzing Multiple Experiments}
 \usage{
-BulkProcessing(data, do_analysis = TRUE, params = list())
+BulkProcessing(data, do_analysis = TRUE, params = list(), verbose = FALSE)
 }
 \arguments{
 \item{data}{Compiled data of experiments.}
@@ -23,6 +23,9 @@ parameters can be provided for the following functions:
 \item \code{GetAnalysis}
 \item \code{SummarizeResult}
 }}
+
+\item{verbose}{Logical; if TRUE, prints detailed processing information for troubleshooting.
+Default is FALSE.}
 }
 \value{
 A list containing three elements:

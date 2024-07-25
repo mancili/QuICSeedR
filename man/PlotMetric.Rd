@@ -2,12 +2,13 @@
 % Please edit documentation in R/PlotMetric.R
 \name{PlotMetric}
 \alias{PlotMetric}
-\title{Create a customizable ggplot}
+\title{Create a customizable ggplot for metrics}
 \usage{
 PlotMetric(
   calculation,
   x = "content",
   y = "RAF",
+  fill_var = NULL,
   point = TRUE,
   box = TRUE,
   base_theme = theme_bw(),
@@ -21,6 +22,9 @@ PlotMetric(
 
 \item{y}{Character string specifying the column name for the y-axis. Default is "RAF".}
 
+\item{fill_var}{The name of the column to be used for fill color, or a vector of colors.
+If NULL, no fill color is applied. Default is NULL.}
+
 \item{point}{Logical. If TRUE (default), adds jittered points to the plot.}
 
 \item{box}{Logical. If TRUE (default), adds a boxplot to the plot.}
@@ -33,13 +37,15 @@ PlotMetric(
 A ggplot object.
 }
 \description{
-This function generates a ggplot object with options for boxplot and jittered points.
+This is wrapper function to generate a ggplot object with default options for boxplot and jittered points.
 Additional ggplot2 functions to be applied to the plot.
 }
 \examples{
 \dontrun{
-PlotMetric(calculation, x = "content", y = "MS",
-           labs(title = "Max Slope by Sample"),
-           scale_y_continuous(limits = c(0, 1600)))
+PlotMetric(calculation_96, y = "MS", point = FALSE, box = FALSE,
+           boxplot= geom_boxplot(color = 'gray'),
+           scatter = geom_point(color = "blue") ,
+           xlab = xlab("Sample ID"),
+           ylab =ylab("Normalized Max Slope"))
 }
 }
