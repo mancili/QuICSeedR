@@ -33,7 +33,7 @@ For more detailed examples and function documentation, please refer to the funct
 
 ## License
 
-This R package for analyzing seed amplification assay data is available under a dual licensing model: it is freely available under the GNU General Public License v3.0 (GPL-3) for open-source use, and a separate commercial license is offered for use cases that require additional rights or support beyond the scope of GPL-3. See the [GPL-3](GPL-3) and [LICENSE](LICENSE) file for details.
+This R package for analyzing seed amplification assay data is available under a dual licensing model: it is freely available under the GNU General Public License v3.0 (GPL-3) for open-source use, and a separate commercial license is offered for use cases that require additional rights or support beyond the scope of GPL-3. See the [GPL-3](GPL-3) and [COMMERCIAL LICENSE](COMMERCIAL LICENSE) file for details.
 
 ## Author
 
