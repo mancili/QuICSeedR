@@ -1,4 +1,4 @@
-#' Read MARS data from multiple folders
+#' Bulk Read MARS data
 #'
 #' @param path Character string specifying the path to the parent directory containing the data folders.
 #' @param plate_subfix Character string used to identify plate data files.
@@ -17,7 +17,7 @@
 #' }
 #' @export
 
-BulkReading <- function(path, plate_subfix, raw_subfix, helper_func = NULL) {
+BulkReadMARS <- function(path, plate_subfix, raw_subfix, helper_func = NULL) {
   
   folders <- list.dirs(path = path, recursive = FALSE)
   
