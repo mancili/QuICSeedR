@@ -8,11 +8,12 @@
 #' @param meta Cleaned meta data. Output from `CleanMeta()`.
 #' @param norm Logical. If TRUE, normalization will be performed. Default is FALSE. 
 #' @param norm_ct Sample name used to normalize calculation. 
-#' @param threshold_method Method for calculating threshold ('stdv' or 'bg_ratio'). 
+#' @param threshold_method Method for calculating threshold ('stdv', 'rfu_val', or 'bg_ratio'). 
 #' @param time_skip Number of initial time points to skip when checking for threshold crossing.
 #'        This helps ignore early crossings that may be due to reasons unrelated to seeding activity.
 #' @param sd_fold Fold of standard deviation to calculate the threshold for RAF (for 'stdv' method).
 #' @param bg_fold Background fold for threshold calculation (for 'bg_ratio' method).
+#' @param rfu Relative fluorescence unit values used for threshold (for 'rfu_val' method).
 #' @param cycle_background The cycle number chosen as the background for RAF and MPR calculations.
 #' @param binw Bin width for the MS calculation.
 #' @return A data frame containing the results of the calculation. 
@@ -35,75 +36,76 @@
 #' @importFrom stats sd
 #' @importFrom magrittr %>%
 #' @export
-GetCalculation <- function(raw, meta, norm = FALSE, norm_ct, threshold_method = 'stdv', time_skip = 5, sd_fold = 3, bg_fold = 3, cycle_background = 4, binw = 6) {
-  
-  if (!threshold_method %in% c('stdv', 'bg_ratio')) stop("Invalid threshold_method. Use 'stdv' or 'bg_ratio'.")
-  if (cycle_background > nrow(raw)) stop("cycle_background exceeds number of rows in raw data")
-  if (norm && is.null(norm_ct)) stop("norm_ct must be provided when norm is TRUE")
-  
+
+GetCalculation = function (raw, meta, norm = FALSE, norm_ct, threshold_method = "stdv", 
+                           time_skip = 5, sd_fold = 3, bg_fold = 3, rfu = 5000, cycle_background = 4, 
+                           binw = 6) 
+{
+  if (!threshold_method %in% c("stdv", "bg_ratio","rfu_val")) 
+    stop("Invalid threshold_method. Use 'stdv', 'bg_ratio', or 'rfu_val'.")
+  if (cycle_background > nrow(raw)) 
+    stop("cycle_background exceeds number of rows in raw data")
+  if (norm && is.null(norm_ct)) 
+    stop("norm_ct must be provided when norm is TRUE")
   calculate_mpr <- function(raw, background) {
-    apply(raw, 2, max) / background
+    apply(raw, 2, max)/background
   }
-  
-  calculate_threshold <- function(nv, method, sd_fold, bg_fold) {
-    if (method == 'stdv') {
+  calculate_threshold <- function(nv, method, sd_fold, bg_fold, rfu) {
+    if (method == "stdv") {
       mean(nv) + sd_fold * sd(nv)
-    } else {
+    }
+    else if (method == "bg_ratio") {
       nv * bg_fold
+    } 
+    else {
+      rfu
     }
   }
-  
   calculate_raf <- function(raw, threshold, time_skip) {
     time_to_threshold <- apply(raw, 2, function(column) {
       crossing_row <- which(column[-(1:time_skip)] > threshold)[1]
-      if (is.na(crossing_row)) NA else as.numeric(rownames(raw)[crossing_row + time_skip])
+      if (is.na(crossing_row)) 
+        NA
+      else as.numeric(rownames(raw)[crossing_row + time_skip])
     })
-    raf <- 1 / time_to_threshold
+    raf <- 1/time_to_threshold
     raf[is.infinite(raf) | is.na(raf)] <- 0
     list(time_to_threshold = time_to_threshold, raf = raf)
   }
-  
   calculate_ms <- function(raw, binw) {
     n <- nrow(raw)
     smoothed_slope <- apply(raw, 2, function(col) {
       sapply(1:(n - binw), function(i) {
-        (col[i + binw] - col[i]) / binw
+        (col[i + binw] - col[i])/binw
       })
     })
     apply(smoothed_slope, 2, max, na.rm = TRUE)
   }
-  
-  background <- raw[cycle_background,]
+  background <- raw[cycle_background, ]
   nv <- as.numeric(background)
-  threshold <- calculate_threshold(nv, threshold_method, sd_fold, bg_fold)
-  
+  threshold <- calculate_threshold(nv, threshold_method, sd_fold, bg_fold, rfu)
   mpr <- calculate_mpr(raw, background)
   raf_results <- calculate_raf(raw, threshold, time_skip)
   ms <- calculate_ms(raw, binw)
-  
-  calculation <- data.frame(
-    time_to_threshold = raf_results$time_to_threshold,
-    RAF = raf_results$raf,
-    MPR = mpr,
-    MS = ms
-  )
-  
+  calculation <- data.frame(time_to_threshold = raf_results$time_to_threshold, 
+                            RAF = raf_results$raf, MPR = mpr, MS = ms)
   if (norm) {
     sel <- which(meta$content == norm_ct) %>% as.numeric()
-    data_pos <- calculation[sel,]
-    terms <- c('time_to_threshold', 'RAF', 'MPR', 'MS')
-    data_norm <- data.frame(matrix(nrow = nrow(calculation), ncol = length(terms)))
+    data_pos <- calculation[sel, ]
+    terms <- c("time_to_threshold", "RAF", "MPR", "MS")
+    data_norm <- data.frame(matrix(nrow = nrow(calculation), 
+                                   ncol = length(terms)))
     for (i in 1:length(terms)) {
-      ave_terms <- mean(data_pos[,terms[i]])
-      data_norm[,i] <- calculation[,terms[i]] / ave_terms
+      ave_terms <- mean(data_pos[, terms[i]])
+      data_norm[, i] <- calculation[, terms[i]]/ave_terms
     }
     colnames(data_norm) <- terms
     calculation <- cbind(meta, data_norm)
-  } else {
+  }
+  else {
     calculation <- cbind(meta, calculation)
   }
-  
-  calculation$XTH = ifelse(!is.na(calculation$time_to_threshold) & calculation$time_to_threshold > 0, 1, 0)
-  
+  calculation$XTH = ifelse(!is.na(calculation$time_to_threshold) & 
+                             calculation$time_to_threshold > 0, 1, 0)
   return(calculation)
 }

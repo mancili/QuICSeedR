@@ -13,6 +13,7 @@ GetCalculation(
   time_skip = 5,
   sd_fold = 3,
   bg_fold = 3,
+  rfu = 5000,
   cycle_background = 4,
   binw = 6
 )
@@ -26,7 +27,7 @@ GetCalculation(
 
 \item{norm_ct}{Sample name used to normalize calculation.}
 
-\item{threshold_method}{Method for calculating threshold ('stdv' or 'bg_ratio').}
+\item{threshold_method}{Method for calculating threshold ('stdv', 'rfu_val', or 'bg_ratio').}
 
 \item{time_skip}{Number of initial time points to skip when checking for threshold crossing.
 This helps ignore early crossings that may be due to reasons unrelated to seeding activity.}
@@ -34,6 +35,8 @@ This helps ignore early crossings that may be due to reasons unrelated to seedin
 \item{sd_fold}{Fold of standard deviation to calculate the threshold for RAF (for 'stdv' method).}
 
 \item{bg_fold}{Background fold for threshold calculation (for 'bg_ratio' method).}
+
+\item{rfu}{Relative fluorescence unit values used for threshold (for 'rfu_val' method).}
 
 \item{cycle_background}{The cycle number chosen as the background for RAF and MPR calculations.}
 
