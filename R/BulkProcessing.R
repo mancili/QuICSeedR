@@ -73,7 +73,6 @@ BulkProcessing = function(data, do_analysis = TRUE, params = list(), verbose = F
     log("Dimensions of plate_time:", dim(plate_time), "\n")
     
     clean_raw_params <- params$CleanRaw %||% list()
-    clean_raw_params$cycle_total <- NULL
     
     raw <- tryCatch({
       do.call(CleanRaw, c(list(meta = meta, raw = raw, 
