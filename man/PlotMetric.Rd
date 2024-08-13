@@ -38,7 +38,7 @@ A ggplot object.
 }
 \description{
 This is wrapper function to generate a ggplot object with default options for boxplot and jittered points.
-Additional ggplot2 functions to be applied to the plot.
+Additional ggplot2 functions can be applied to the plot.
 }
 \examples{
 \dontrun{

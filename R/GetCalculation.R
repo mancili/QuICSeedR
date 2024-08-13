@@ -1,8 +1,8 @@
 #' Perform Calculations
 #'
 #' @description This function takes cleaned raw data and performs various analyses,
-#' including calculating the time to threshold, Rate of Amyloid Formation (RAF), Max Point Ratio (MPR),
-#' , Max Slope (MS), and whether the reaction crosses the threshold (XTH).
+#' including calculating the time to threshold, Rate of Amyloid Formation (RAF), Max Point Ratio (MPR), 
+#' Max Slope (MS), and whether the reaction crosses the threshold (XTH).
 #'
 #' @param raw Cleaned raw data matrix. Output from `CleanRaw()`.
 #' @param meta Cleaned meta data. Output from `CleanMeta()`.
