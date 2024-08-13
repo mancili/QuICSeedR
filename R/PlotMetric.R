@@ -1,7 +1,7 @@
 #' Create a customizable ggplot for metrics
 #'
 #' This is wrapper function to generate a ggplot object with default options for boxplot and jittered points. 
-#' Additional ggplot2 functions to be applied to the plot.
+#' Additional ggplot2 functions can be applied to the plot.
 #'
 #' @param calculation A data frame containing the data to be plotted. Output of `GetCalculation`
 #' @param x Character string specifying the column name for the x-axis. Default is "content".
