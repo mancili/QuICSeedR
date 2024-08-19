@@ -22,7 +22,7 @@ A list containing data from each folder, including plate, raw, and replicate dat
 Bulk Read MARS data
 }
 \examples{
-\dontrun{
+if (interactive()) {
 grinder_data <- ReadMARS(path = './data/grinder/',
                          plate_subfix = 'plate',
                          raw_subfix = 'raw',

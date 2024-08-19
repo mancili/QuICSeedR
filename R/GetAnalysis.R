@@ -16,7 +16,7 @@
 #' https://CRAN.R-project.org/package=WRS2
 #'
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' analysis <- GetAnalysis(calculation_spread, control = "neg", test = "wilcox", 
 #'                         alternative = 'greater')
 #' }

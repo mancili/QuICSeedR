@@ -44,7 +44,7 @@ refer to the documentation of the plot function.}
 The function visualizes the fluorescence over time for selected samples.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 PlotRawMulti(raw = raw, samples = samples)
 }
 }

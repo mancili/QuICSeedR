@@ -53,7 +53,7 @@ evaluates sample-level result by calculating the percentage of technical replica
 that exceed the pre-defined threshold.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 result <- SummarizeResult(analysis, calculation)
 result_mpr <- SummarizeResult(analysis, calculation, sig_method = "MPR")
 }

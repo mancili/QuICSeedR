@@ -20,7 +20,7 @@
 #' @references 
 #' Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) The New S Language. Wadsworth & Brooks/Cole.
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' PlotRawSingle(raw = raw, sample = sample)
 #' }
 #' 

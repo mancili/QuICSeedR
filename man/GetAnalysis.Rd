@@ -34,7 +34,7 @@ This function performs statistical analysis on a list of calculation spreads,
 comparing each column to a control column using various statistical tests.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 analysis <- GetAnalysis(calculation_spread, control = "neg", test = "wilcox", 
                         alternative = 'greater')
 }

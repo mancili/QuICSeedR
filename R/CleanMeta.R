@@ -13,7 +13,7 @@
 #' @return A data frame containing the cleaned metadata.
 #'
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' meta <- CleanMeta(raw, plate, replicate)
 #' print(meta)
 #' }

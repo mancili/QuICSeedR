@@ -28,7 +28,6 @@ This function takes a data frame containing metadata and calculation results,
 and spreads the results into a list of data frames for selected calculation term.
 }
 \examples{
-\dontrun{
 calculation <- data.frame(
   content = rep(c("A", "B", "C"), each = 2),
   replicate = rep(1:2, 3),
@@ -36,7 +35,9 @@ calculation <- data.frame(
   RAF = rnorm(6),
   MPR = rnorm(6),
   MS = rnorm(6)
+  )
 
 SpreadCalculation(calculation)
-}
+
+
 }

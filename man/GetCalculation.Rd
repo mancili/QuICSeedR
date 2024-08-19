@@ -51,7 +51,7 @@ including calculating the time to threshold, Rate of Amyloid Formation (RAF), Ma
 Max Slope (MS), and whether the reaction crosses the threshold (XTH).
 }
 \examples{
-\dontrun{
+if (interactive()) {
 GetCalculation(raw, meta, norm = TRUE, norm_ct = 'pos', 'stdv')
 }
 }

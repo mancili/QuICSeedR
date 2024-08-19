@@ -7,7 +7,7 @@
 #' @return A data frame containing the time information in decimal hours.
 #'
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' # Example with "hours and minutes" format
 #' raw_data <- data.frame(
 #'   V1 = c("Header", "Row1", "Row2"),

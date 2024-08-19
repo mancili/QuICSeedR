@@ -41,7 +41,7 @@
 #' }
 #' 
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' result <- SummarizeResult(analysis, calculation)
 #' result_mpr <- SummarizeResult(analysis, calculation, sig_method = "MPR")
 #' }

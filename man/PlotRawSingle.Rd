@@ -44,7 +44,7 @@ refer to the documentation of the plot function.}
 The function plots fluorescence for selected sample over time.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 PlotRawSingle(raw = raw, sample = sample)
 }
 

@@ -41,7 +41,7 @@ including time conversion, metadata cleaning, raw data cleaning, calculations, a
 and result summarization.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 
 #Set parameters that will be used in the process
 

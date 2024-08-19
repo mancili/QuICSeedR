@@ -16,7 +16,7 @@
 #' @return A ggplot object.
 #'
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' PlotMetric(calculation_96, y = "MS", point = FALSE, box = FALSE,
 #'            boxplot= geom_boxplot(color = 'gray'),
 #'            scatter = geom_point(color = "blue") ,

@@ -30,7 +30,7 @@
 #' 2023;12(2):309. doi:10.3390/pathogens12020309
 #' 
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' GetCalculation(raw, meta, norm = TRUE, norm_ct = 'pos', 'stdv')
 #' }
 #' @importFrom stats sd

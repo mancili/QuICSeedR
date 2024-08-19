@@ -16,7 +16,7 @@ A data frame containing the time information in decimal hours.
 The function extracts and converts run time information from MARS output.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 # Example with "hours and minutes" format
 raw_data <- data.frame(
   V1 = c("Header", "Row1", "Row2"),

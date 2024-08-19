@@ -37,7 +37,7 @@ This function processes raw data (raw), plate layout (plate), and replicate info
 It can optionally split the content column into additional columns.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 meta <- CleanMeta(raw, plate, replicate)
 print(meta)
 }

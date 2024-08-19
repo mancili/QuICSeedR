@@ -17,7 +17,7 @@
 #' @importFrom rlang .data
 #'
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' PlotPlate(raw, plate_time)
 #' }
 #'

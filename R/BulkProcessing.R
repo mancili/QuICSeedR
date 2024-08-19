@@ -28,7 +28,7 @@
 #'   }
 #'
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #'
 #' #Set parameters that will be used in the process
 #' 

@@ -9,7 +9,7 @@
 #' 
 #' @import readxl
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' grinder_data <- ReadMARS(path = './data/grinder/',
 #'                          plate_subfix = 'plate',
 #'                          raw_subfix = 'raw',

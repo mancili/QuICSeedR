@@ -25,7 +25,7 @@ A ggplot object representing the plate data.
 This function creates a faceted plot of time series data for each well in a plate layout.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 PlotPlate(raw, plate_time)
 }
 

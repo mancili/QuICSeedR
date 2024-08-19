@@ -41,7 +41,7 @@ This is wrapper function to generate a ggplot object with default options for bo
 Additional ggplot2 functions can be applied to the plot.
 }
 \examples{
-\dontrun{
+if (interactive()) {
 PlotMetric(calculation_96, y = "MS", point = FALSE, box = FALSE,
            boxplot= geom_boxplot(color = 'gray'),
            scatter = geom_point(color = "blue") ,

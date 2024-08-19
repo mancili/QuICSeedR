@@ -8,7 +8,7 @@
 #' @param cycle_total The total number of cycles (rows) to include in the output.
 #' @return A data frame containing the cleaned raw fluorescence data. 
 #' @examples
-#' \dontrun{
+#' if (interactive()) {
 #' meta <- data.frame(content_replicate = c("A1", "A2", "A3"))
 #' raw <- data.frame(
 #'   X1 = c("Header", "1", "2", "3"),
