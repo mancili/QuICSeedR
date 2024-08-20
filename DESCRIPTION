@@ -1,7 +1,7 @@
 Package: QuICSeedR
 Title: Analyze Data for Fluorophore-Assisted Seed Amplification Assays
 Date: 2024-08-19
-Version: 0.1.0
+Version: 0.1.1
 Depends: 
     R (>= 4.1.0)
 Authors@R: person(given = "Manci",
@@ -12,7 +12,7 @@ Authors@R: person(given = "Manci",
 Copyright: Manci Li
 Description: A toolkit for analysis and visualization of data from fluorophore-assisted seed amplification assays, such as Real-Time Quaking-Induced Conversion (RT-QuIC) and Fluorophore-Assisted Protein Misfolding Cyclic Amplification (PMCA). 'QuICSeedR' addresses limitations in existing software by automating data processing, supporting large-scale analysis, and enabling comparative studies of analysis methods.
 Imports: WRS2, magrittr, graphics, stats, ggplot2, methods, dplyr, tidyr, tidyselect, rlang, readxl
-License: file LICENSE
+License: GPL-3 | file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
