@@ -25,7 +25,7 @@ devtools::install_github("mancili/QuICSeedR")
 
 ## Usage
 
-For more detailed examples and function documentation, please refer to the function help pages and (manuscript link).
+For more detailed examples and function documentation, please refer to the function help pages. The manuscript link will be added here once it becomes available.
 
 ## Requirements
 
