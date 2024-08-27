@@ -55,6 +55,7 @@
 #' 
 #' str(results)
 #' 
+#' @importFrom rlang %||%
 #' @export
 BulkProcessing = function(data, do_analysis = TRUE, params = list(), verbose = FALSE) {
   subcalculation <- list()
