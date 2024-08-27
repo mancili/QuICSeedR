@@ -27,6 +27,7 @@
 #'     \item combined_result: A data frame of combined results from all experiments
 #'   }
 #'
+#' @importFrom rlang %||%
 #' @examples
 #' #Get path for example data
 #' path = system.file("extdata", package = "QuICSeedR")
@@ -54,8 +55,8 @@
 #' results = BulkProcessing(data =elkear, params = params)
 #' 
 #' str(results)
+#'
 #' 
-#' @importFrom rlang %||%
 #' @export
 BulkProcessing = function(data, do_analysis = TRUE, params = list(), verbose = FALSE) {
   subcalculation <- list()
