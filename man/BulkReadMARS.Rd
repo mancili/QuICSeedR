@@ -21,11 +21,23 @@ A list containing data from each folder, including plate, raw, and replicate dat
 \description{
 Bulk Read MARS data
 }
-\examples{
-if (interactive()) {
-grinder_data <- ReadMARS(path = './data/grinder/',
-                         plate_subfix = 'plate',
-                         raw_subfix = 'raw',
-                         helper_func = flip_and_replace)
+\details{
+The example dataset, located in \verb{inst/extdata/}, consists of folders representing
+individual experimental runs. This dataset is a subset of the data used in a
+publication led by Dr. Stuart Lichtenberg. For detailed information about the experiments, please
+contact Dr. Stuart Lichtenberg at \code{licht213@umn.edu}.
+
+#' Each folder contains two Excel files:
+\itemize{
+\item A file with the suffix \code{plate}: Contains the plate setup and experimental information.
+\item A file with the suffix \code{raw}: Contains fluorescence data exported from MARS software.
 }
+}
+\examples{
+path = system.file("extdata", package = "QuICSeedR")
+data <- BulkReadMARS(path = path,
+                     plate_subfix = 'plate',
+                     raw_subfix = 'raw')
+str(data)
+
 }

@@ -7,7 +7,8 @@
 #' @param id_col The name of the column in calculation that identifies the content. Default is 'content'.
 #' @param rep_col The name of the column in calculation that identifies the replicate. Default is 'replicate'.
 #' @param terms A vector of column names to spread.  Defaults to 'RAF', 'MPR', and 'MS'.
-#' @return A list of data frames containing the spread results of the calculation. 
+#' @return A list of data frames containing the spread results of the calculation. Each data frame is compatible with 
+#' various graphing software, particularly GraphPad Prism, which is the most commonly used graphing tool in F-SAA research.
 #' @importFrom methods is
 #' @importFrom tidyr pivot_wider
 #' @importFrom tidyselect everything all_of
@@ -22,8 +23,8 @@
 #'   MS = rnorm(6)
 #'   )
 #' 
-#' SpreadCalculation(calculation)
-#' 
+#' calculation_spread = SpreadCalculation(calculation)
+#' print(calculation_spread)
 #' 
 #' @export
 SpreadCalculation <- function(calculation, id_col = "content", rep_col = "replicate", 

@@ -1,7 +1,7 @@
 Package: QuICSeedR
 Title: Analyze Data for Fluorophore-Assisted Seed Amplification Assays
 Date: 2024-08-19
-Version: 0.1.1
+Version: 0.1.2
 Depends: 
     R (>= 4.1.0)
 Authors@R: person(given = "Manci",
@@ -10,7 +10,7 @@ Authors@R: person(given = "Manci",
                   role = c("aut", "cre"),
                   comment = c(ORCID = "0000-0003-3930-7117"))
 Copyright: Manci Li
-Description: A toolkit for analysis and visualization of data from fluorophore-assisted seed amplification assays, such as Real-Time Quaking-Induced Conversion (RT-QuIC) and Fluorophore-Assisted Protein Misfolding Cyclic Amplification (PMCA). 'QuICSeedR' addresses limitations in existing software by automating data processing, supporting large-scale analysis, and enabling comparative studies of analysis methods.
+Description: A toolkit for analysis and visualization of data from fluorophore-assisted seed amplification assays, such as Real-Time Quaking-Induced Conversion (RT-QuIC) and Fluorophore-Assisted Protein Misfolding Cyclic Amplification (PMCA). 'QuICSeedR' addresses limitations in existing software by automating data processing, supporting large-scale analysis, and enabling comparative studies of analysis methods. It incorporates methods described in Henderson et al. (2015) <doi:10.1099/vir.0.069906-0>, Li et al. (2020) <doi:10.1038/s41598-021-96127-8>, Rowden et al. (2023) <doi:10.3390/pathogens12020309>, Haley et al. (2013) <doi:10.1371/journal.pone.0081488>, and Mair and Wilcox (2020) <doi:10.3758/s13428-019-01246-w>. Please refer to the original publications for details.
 Imports: WRS2, magrittr, graphics, stats, ggplot2, methods, dplyr, tidyr, tidyselect, rlang, readxl
 License: GPL-3 | file LICENSE
 Encoding: UTF-8

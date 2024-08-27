@@ -21,7 +21,8 @@ SpreadCalculation(
 \item{terms}{A vector of column names to spread.  Defaults to 'RAF', 'MPR', and 'MS'.}
 }
 \value{
-A list of data frames containing the spread results of the calculation.
+A list of data frames containing the spread results of the calculation. Each data frame is compatible with
+various graphing software, particularly GraphPad Prism, which is the most commonly used graphing tool in F-SAA research.
 }
 \description{
 This function takes a data frame containing metadata and calculation results,
@@ -37,7 +38,7 @@ calculation <- data.frame(
   MS = rnorm(6)
   )
 
-SpreadCalculation(calculation)
-
+calculation_spread = SpreadCalculation(calculation)
+print(calculation_spread)
 
 }

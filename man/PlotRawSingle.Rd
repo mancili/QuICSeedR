@@ -7,13 +7,13 @@
 PlotRawSingle(
   raw,
   sample,
-  legend_position = "bottomright",
+  legend_position = "topleft",
   xlim = NULL,
   ylim = NULL,
   custom_colors = NULL,
   xlab = "Time (h)",
   ylab = "Fluorescence",
-  linetype = "l"
+  linetypes = NULL
 )
 }
 \arguments{
@@ -35,20 +35,45 @@ If NULL (default), the function will use the original color scheme.}
 
 \item{ylab}{Label for y-axis.}
 
-\item{linetype}{The type parameter in plotting functions accepts various values to control the appearance of the plot: "p" draws only points,
-"l" creates lines, "b" combines both points and lines, "c" displays empty points joined by lines, "o" overplots points and lines, "s" and "S" create stair steps,
-"h" produces histogram-like vertical lines, and "n" sets up the plot without drawing any points or lines. For more detailed information on these options,
-refer to the documentation of the plot function.}
+\item{linetypes}{Vector of line types to use for each line. Can be integer codes (1:6)
+or character codes ("solid", "dashed", "dotted", "dotdash", "longdash", "twodash").
+All lines will be solid by default.}
+}
+\value{
+A plot displaying the fluorescence of the selected sample over time.
 }
 \description{
 The function plots fluorescence for selected sample over time.
 }
 \examples{
-if (interactive()) {
-PlotRawSingle(raw = raw, sample = sample)
-}
+# Define the path to the plate data file
+plate_path <- system.file("extdata/20240716_p3", 
+                          file = '20240716_p3_plate.xlsx', 
+                          package = "QuICSeedR")
+  
+# Read the plate data
+plate <- readxl::read_xlsx(plate_path)
 
-}
-\references{
-Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) The New S Language. Wadsworth & Brooks/Cole.
+# Define the path to the raw data file
+raw_path <- system.file("extdata/20240716_p3", 
+                        file = '20240716_p3_raw.xlsx', 
+                        package = "QuICSeedR")
+# Read the raw data
+raw <- readxl::read_xlsx(raw_path)
+
+# Get replicate data
+replicate <- GetReplicate(plate)
+
+# Ensure time displayed as decimal hours
+plate_time = ConvertTime(raw)
+
+#Get metadata and display the few rows 
+meta = CleanMeta(raw, plate, replicate)
+
+#Clean data 
+cleanraw <- CleanRaw(meta, raw, plate_time)
+
+#Plot fluorescence curves from positive controls
+PlotRawSingle(cleanraw, "Pos")
+
 }

@@ -41,23 +41,31 @@ including time conversion, metadata cleaning, raw data cleaning, calculations, a
 and result summarization.
 }
 \examples{
-if (interactive()) {
+#Get path for example data
+path = system.file("extdata", package = "QuICSeedR")
 
-#Set parameters that will be used in the process
+#Helper function
+add_underscore <- function(text) {
+  gsub("([a-zA-Z])(\\\\d)", "\\\\1_\\\\2", text)
+  }
+  
+#Read in data
+elkear = BulkReadMARS(path = path, 
+                      plate_subfix = 'plate',
+                      raw_subfix = 'raw', 
+                      helper_func = add_underscore)
+                      
+#Set up parameters for batch analysis
+params = list(
+  CleanMeta = list(split_content = TRUE, split_into = c('region', 'sample')),
+  GetCalculation = list(cycle_background = 5, norm = TRUE, norm_ct = 'Pos',
+                       sd_fold = 10, time_skip = 5),
+  GetAnalysis = list(control = "Neg")
+  )
+  
+#Get results     
+results = BulkProcessing(data =elkear, params = params)
 
-myparams = list(
-CleanMeta = list(split_content = TRUE, split_into = c("dilution", "sampleID")),
-GetAnalysis = list(control = 'neg', alternative = "greater"),
-SummarizeResult = list(sig_method = 'metric_count', method_threshold = 3)
-)
-
-results = ParallelProcessing(data = my_data, params = my_params)
-
-# Access combined results
-combined_results <- results$combined_result
-
-# Access cleaned raw data for a specific plate
-cleaned_raw_data_plate1 <- results$combined_cleanraw[[1]]
-}
+str(results)
 
 }

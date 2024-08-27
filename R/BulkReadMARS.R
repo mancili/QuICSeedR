@@ -5,16 +5,28 @@
 #' @param raw_subfix Character string used to identify raw data files.
 #' @param helper_func Optional function to be applied to each column of the plate data (default: NULL).
 #'
+#' @details
+#' The example dataset, located in `inst/extdata/`, consists of folders representing
+#' individual experimental runs. This dataset is a subset of the data used in a
+#' publication led by Dr. Stuart Lichtenberg. For detailed information about the experiments, please 
+#' contact Dr. Stuart Lichtenberg at `licht213@umn.edu`.
+#' 
+#' #' Each folder contains two Excel files:
+#' \itemize{
+#'   \item A file with the suffix `plate`: Contains the plate setup and experimental information.
+#'   \item A file with the suffix `raw`: Contains fluorescence data exported from MARS software.
+#' }
+#'
 #' @return A list containing data from each folder, including plate, raw, and replicate data.
 #' 
 #' @import readxl
 #' @examples
-#' if (interactive()) {
-#' grinder_data <- ReadMARS(path = './data/grinder/',
-#'                          plate_subfix = 'plate',
-#'                          raw_subfix = 'raw',
-#'                          helper_func = flip_and_replace)
-#' }
+#' path = system.file("extdata", package = "QuICSeedR")
+#' data <- BulkReadMARS(path = path,
+#'                      plate_subfix = 'plate',
+#'                      raw_subfix = 'raw')
+#' str(data)
+#' 
 #' @export
 
 BulkReadMARS <- function(path, plate_subfix, raw_subfix, helper_func = NULL) {

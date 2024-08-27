@@ -41,11 +41,37 @@ This is wrapper function to generate a ggplot object with default options for bo
 Additional ggplot2 functions can be applied to the plot.
 }
 \examples{
-if (interactive()) {
-PlotMetric(calculation_96, y = "MS", point = FALSE, box = FALSE,
-           boxplot= geom_boxplot(color = 'gray'),
-           scatter = geom_point(color = "blue") ,
-           xlab = xlab("Sample ID"),
-           ylab =ylab("Normalized Max Slope"))
-}
+# Define the path to the plate data file
+plate_path <- system.file("extdata/20240716_p3", 
+                          file = '20240716_p3_plate.xlsx', 
+                          package = "QuICSeedR")
+  
+# Read the plate data
+plate <- readxl::read_xlsx(plate_path)
+
+# Define the path to the raw data file
+raw_path <- system.file("extdata/20240716_p3", 
+                        file = '20240716_p3_raw.xlsx', 
+                        package = "QuICSeedR")
+# Read the raw data
+raw <- readxl::read_xlsx(raw_path)
+
+# Get replicate data
+replicate <- GetReplicate(plate)
+
+# Ensure time displayed as decimal hours
+plate_time = ConvertTime(raw)
+
+#Get metadata and display the few rows 
+meta = CleanMeta(raw, plate, replicate)
+
+#Clean data 
+cleanraw <- CleanRaw(meta, raw, plate_time)
+
+#Get calculations using positive controls to normalize values. 
+calculation = GetCalculation(raw = cleanraw, meta, norm = TRUE, norm_ct = 'Pos')
+
+#Default plot
+PlotMetric(calculation)
+           
 }

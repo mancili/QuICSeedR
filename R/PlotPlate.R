@@ -17,9 +17,26 @@
 #' @importFrom rlang .data
 #'
 #' @examples
-#' if (interactive()) {
-#' PlotPlate(raw, plate_time)
-#' }
+#' # Define the path to the plate data file
+#' plate_path <- system.file("extdata/20240716_p3", 
+#'                           file = '20240716_p3_plate.xlsx', 
+#'                           package = "QuICSeedR")
+#'   
+#' # Read the plate data
+#' plate <- readxl::read_xlsx(plate_path)
+#' 
+#' # Define the path to the raw data file
+#' raw_path <- system.file("extdata/20240716_p3", 
+#'                         file = '20240716_p3_raw.xlsx', 
+#'                         package = "QuICSeedR")
+#' # Read the raw data
+#' raw <- readxl::read_xlsx(raw_path)
+#' 
+#' # Ensure time displayed as decimal hours
+#' plate_time = ConvertTime(raw)
+#' 
+#' #Plot time series data for each well in a plate layout
+#' PlotPlate(raw = raw, plate_time = plate_time, fill = TRUE)
 #'
 #' @export
 PlotPlate <- function(raw, plate_time, format = 96, f_size = 5, fill = FALSE) {

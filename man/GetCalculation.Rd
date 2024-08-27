@@ -51,19 +51,52 @@ including calculating the time to threshold, Rate of Amyloid Formation (RAF), Ma
 Max Slope (MS), and whether the reaction crosses the threshold (XTH).
 }
 \examples{
-if (interactive()) {
-GetCalculation(raw, meta, norm = TRUE, norm_ct = 'pos', 'stdv')
-}
+# Define the path to the plate data file
+plate_path <- system.file("extdata/20240716_p3", 
+                          file = '20240716_p3_plate.xlsx', 
+                          package = "QuICSeedR")
+  
+# Read the plate data
+plate <- readxl::read_xlsx(plate_path)
+
+# Define the path to the raw data file
+raw_path <- system.file("extdata/20240716_p3", 
+                        file = '20240716_p3_raw.xlsx', 
+                        package = "QuICSeedR")
+# Read the raw data
+raw <- readxl::read_xlsx(raw_path)
+
+# Get replicate data
+replicate <- GetReplicate(plate)
+
+# Ensure time displayed as decimal hours
+plate_time = ConvertTime(raw)
+
+#Get metadata and display the few rows 
+meta = CleanMeta(raw, plate, replicate)
+
+#Clean data 
+cleanraw <- CleanRaw(meta, raw, plate_time)
+
+#Get calculations using positive controls to normalize values. 
+calculation = GetCalculation(raw = cleanraw, meta, norm = TRUE, norm_ct = 'Pos')
+
+head(calculation)
+
 }
 \references{
 Henderson DM, Davenport KA, Haley NJ, Denkers ND, Mathiason CK, Hoover EA.
 Quantitative assessment of prion infectivity in tissues and body fluids by real-time quaking-induced conversion.
 J Gen Virol. 2015;96(Pt 1):210-219. doi:10.1099/vir.0.069906-0
 
-Haley NJ, Van de Motter A, Carver S, et al. Prion-seeding activity in cerebrospinal fluid of deer with chronic wasting disease.
-PLoS One. 2013;8(11):e81488. doi:10.1371/journal.pone.0081488
+Li M, Schwabenlander MD, Rowden GR, Schefers JM, Jennelle CS, Carstensen M, Seelig D, Larsen PA. RT-QuIC detection
+of CWD prion seeding activity in white-tailed deer muscle tissues. Sci Rep. 2021;11(1):16759.
+doi: 10.1038/s41598-021-96127-8. PMID: 34408204; PMCID: PMC8373970.
 
 Rowden GR, Picasso-Risso C, Li M, Schwabenlander MD, Wolf TM, Larsen PA.
 Standardization of Data Analysis for RT-QuIC-Based Detection of Chronic Wasting Disease. Pathogens.
 2023;12(2):309. doi:10.3390/pathogens12020309
+
+Haley NJ, Van de Motter A, Carver S, et al. Prion-seeding activity in cerebrospinal fluid of deer with chronic
+wasting disease. PLoS One. 2013;8(11):e81488. doi:10.1371/journal.pone.0081488
 }

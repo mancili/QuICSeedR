@@ -7,7 +7,6 @@
 #' @return A data frame containing the time information in decimal hours.
 #'
 #' @examples
-#' if (interactive()) {
 #' # Example with "hours and minutes" format
 #' raw_data <- data.frame(
 #'   V1 = c("Header", "Row1", "Row2"),
@@ -23,7 +22,7 @@
 #' )
 #' plate_time2 <- ConvertTime(raw_data2)
 #' print(plate_time2)
-#' }
+#' 
 #' @importFrom magrittr %>%
 #' @export
 ConvertTime = function (raw) {

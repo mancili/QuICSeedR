@@ -13,10 +13,27 @@
 #' @return A data frame containing the cleaned metadata.
 #'
 #' @examples
-#' if (interactive()) {
-#' meta <- CleanMeta(raw, plate, replicate)
-#' print(meta)
-#' }
+#' # Define the path to the plate data file
+#' plate_path <- system.file("extdata/20240716_p3", 
+#'                           file = '20240716_p3_plate.xlsx', 
+#'                           package = "QuICSeedR")
+#'   
+#' # Read the plate data
+#' plate <- readxl::read_xlsx(plate_path)
+#' 
+#' # Define the path to the raw data file
+#' raw_path <- system.file("extdata/20240716_p3", 
+#'                         file = '20240716_p3_raw.xlsx', 
+#'                         package = "QuICSeedR")
+#' # Read the raw data
+#' raw <- readxl::read_xlsx(raw_path)
+#' 
+#' # Get replicate data
+#' replicate <- GetReplicate(plate)
+#' 
+#' #Get metadata and display the few rows 
+#' meta = CleanMeta(raw, plate, replicate)
+#' head(meta)
 #'
 #' @export
 CleanMeta <- function (raw, plate, replicate, split_content = FALSE, split_by = "_", split_into = c(),

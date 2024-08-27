@@ -12,72 +12,85 @@
 #'        If NULL (default), the function will use the original color scheme.
 #' @param xlab Label for x-axis.
 #' @param ylab Label for y-axis.
-#' @param linetype The type parameter in plotting functions accepts various values to control the appearance of the plot: "p" draws only points, 
-#' "l" creates lines, "b" combines both points and lines, "c" displays empty points joined by lines, "o" overplots points and lines, "s" and "S" create stair steps,
-#'  "h" produces histogram-like vertical lines, and "n" sets up the plot without drawing any points or lines. For more detailed information on these options, 
-#'  refer to the documentation of the plot function.
+#' @param linetypes Vector of line types to use for each line. Can be integer codes (1:6) 
+#'        or character codes ("solid", "dashed", "dotted", "dotdash", "longdash", "twodash").
+#'        All lines will be solid by default.
+#'   
 #' @importFrom graphics plot legend lines
-#' @references 
-#' Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) The New S Language. Wadsworth & Brooks/Cole.
+#' 
+#' @return A plot displaying the fluorescence of the selected samples over time. 
+#' 
 #' @examples
-#' if (interactive()) {
-#' PlotRawMulti(raw = raw, samples = samples)
-#' }
+#' # Define the path to the plate data file
+#' plate_path <- system.file("extdata/20240716_p3", 
+#'                           file = '20240716_p3_plate.xlsx', 
+#'                           package = "QuICSeedR")
+#'   
+#' # Read the plate data
+#' plate <- readxl::read_xlsx(plate_path)
+#' 
+#' # Define the path to the raw data file
+#' raw_path <- system.file("extdata/20240716_p3", 
+#'                         file = '20240716_p3_raw.xlsx', 
+#'                         package = "QuICSeedR")
+#' # Read the raw data
+#' raw <- readxl::read_xlsx(raw_path)
+#' 
+#' # Get replicate data
+#' replicate <- GetReplicate(plate)
+#' 
+#' # Ensure time displayed as decimal hours
+#' plate_time = ConvertTime(raw)
+#' 
+#' #Get metadata and display the few rows 
+#' meta = CleanMeta(raw, plate, replicate)
+#' 
+#' #Clean data 
+#' cleanraw <- CleanRaw(meta, raw, plate_time)
+#' 
+#' #Plot fluorescence curves from negative and positive controls
+#' PlotRawMulti(cleanraw, c("Neg", "Pos"))
+#' 
 #' @export
-PlotRawMulti = function (raw, samples, legend_position = "topleft", 
+PlotRawMulti <- function(raw, samples, legend_position = "topleft", 
                          xlim = NULL, ylim = NULL, custom_colors = NULL,
                          xlab = "Time (h)", ylab = "Fluorescence",
-                         linetype = "l") {
+                         linetypes = NULL) {
   
-  time = as.numeric(rownames(raw))
-  original_colnames <- colnames(raw)
-  data_copy <- raw
-  for (i in seq_len(ncol(raw))) {
-    if (is.character(raw[[i]])) {
-      data_copy[[i]] <- as.numeric(raw[[i]])
-    }
-  }
-  colnames(data_copy) <- original_colnames
+  time <- as.numeric(rownames(raw))
+  
   if (is.null(ylim)) {
-    ymax = c()
-    for (j in 1:length(samples)) {
-      sel = grep(paste0("^", samples[j]), colnames(data_copy))
-      if (length(sel) > 0) {
-        ymax[j] = max(data_copy[, sel], na.rm = TRUE)
-      }
-    }
-    ymax = if (length(ymax) > 0) 
-      max(ymax)
-    else 0
-    ylim = c(0, ymax/0.8)
+    ymax <- max(raw, na.rm = TRUE)
+    ylim <- c(0, ymax/0.8)
   }
+  
   if (is.null(xlim)) {
-    xlim = range(time, na.rm = TRUE)
+    xlim <- range(time, na.rm = TRUE)
   }
-  sel = grep(paste0("^", samples[1]), colnames(data_copy))
-  if (length(sel) > 0) {
-    not_na_indices <- !is.na(data_copy[, sel[1]])
-    plot(x = time[not_na_indices], y = data_copy[not_na_indices, 
-                                                 sel[1]], type = linetype, col = if(is.null(custom_colors)) 1 else custom_colors[1], 
-         ylim = ylim, xlim = xlim, 
-         xlab = xlab, ylab = ylab)
-    for (i in 2:length(sel)) {
-      not_na_indices <- !is.na(data_copy[, sel[i]])
-      lines(x = time[not_na_indices], y = data_copy[not_na_indices, 
-                                                    sel[i]], type = linetype, col = if(is.null(custom_colors)) 1 else custom_colors[1])
+  
+  if (is.null(custom_colors)) {
+    colors_to_use <- seq_len(length(samples))
+  } else {
+    colors_to_use <- rep_len(custom_colors, length(samples))
+  }
+  
+  if (is.null(linetypes)) {
+    linetypes <- rep(1, length(samples))
+  } else {
+    linetypes <- rep_len(linetypes, length(samples))
+  }
+  
+  plot(NULL, xlim = xlim, ylim = ylim, xlab = xlab, ylab = ylab)
+  
+  for (i in seq_along(samples)) {
+    sel <- grep(paste0('^', samples[i]), colnames(raw))
+    for (j in sel) {
+      not_na_indices <- !is.na(raw[, j])
+      lines(x = time[not_na_indices], y = raw[not_na_indices, j], 
+            type = "l", col = colors_to_use[i], lty = linetypes[i])
     }
   }
-  for (j in 2:length(samples)) {
-    sel = grep(paste0("^", samples[j]), colnames(data_copy))
-    if (length(sel) > 0) {
-      for (i in 1:length(sel)) {
-        not_na_indices <- !is.na(data_copy[, sel[i]])
-        lines(x = time[not_na_indices], y = data_copy[not_na_indices, 
-                                                      sel[i]], type = linetype, col = if(is.null(custom_colors)) j else custom_colors[j])
-      }
-    }
-  }
-  legend(legend_position, legend = samples, 
-         col = if(is.null(custom_colors)) seq_len(length(samples)) else custom_colors[1:length(samples)], 
-         lty = 1, cex = 0.8)
+  
+  legend(legend_position, legend = samples,
+         col = colors_to_use, lty = linetypes, cex = 0.8)
 }

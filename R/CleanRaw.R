@@ -6,22 +6,39 @@
 #' @param raw Raw fluorescence readings from MARS software.
 #' @param plate_time Output of `ConvertTime()`.
 #' @param cycle_total The total number of cycles (rows) to include in the output.
-#' @return A data frame containing the cleaned raw fluorescence data. 
-#' @examples
-#' if (interactive()) {
-#' meta <- data.frame(content_replicate = c("A1", "A2", "A3"))
-#' raw <- data.frame(
-#'   X1 = c("Header", "1", "2", "3"),
-#'   X2 = c("Time", "0", "1", "2"),
-#'   A1 = c("Value", "100", "110", "120"),
-#'   A2 = c("Value", "200", "210", "220"),
-#'   A3 = c("Value", "300", "310", "320")
-#' )
-#' plate_time <- c(0, 1, 2)
 #' 
+#' @return A data frame containing the cleaned raw fluorescence data. 
+#' 
+#' @examples
+#' # Define the path to the plate data file
+#' plate_path <- system.file("extdata/20240716_p3", 
+#'                           file = '20240716_p3_plate.xlsx', 
+#'                           package = "QuICSeedR")
+#'   
+#' # Read the plate data
+#' plate <- readxl::read_xlsx(plate_path)
+#' 
+#' # Define the path to the raw data file
+#' raw_path <- system.file("extdata/20240716_p3", 
+#'                         file = '20240716_p3_raw.xlsx', 
+#'                         package = "QuICSeedR")
+#' # Read the raw data
+#' raw <- readxl::read_xlsx(raw_path)
+#' 
+#' # Get replicate data
+#' replicate <- GetReplicate(plate)
+#' 
+#' # Ensure time displayed as decimal hours
+#' plate_time = ConvertTime(raw)
+#' 
+#' #Get metadata and display the few rows 
+#' meta = CleanMeta(raw, plate, replicate)
+#' 
+#' #Clean data 
 #' cleaned_data <- CleanRaw(meta, raw, plate_time)
-#' print(cleaned_data)
-#' }
+#' 
+#' cleaned_data[1:5, 1:5]
+#' 
 #' @export
 CleanRaw = function (meta, raw, plate_time, cycle_total) 
 {
