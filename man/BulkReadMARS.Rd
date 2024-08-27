@@ -27,7 +27,7 @@ individual experimental runs. This dataset is a subset of the data used in a
 publication led by Dr. Stuart Lichtenberg. For detailed information about the experiments, please
 contact Dr. Stuart Lichtenberg at \code{licht213@umn.edu}.
 
-#' Each folder contains two Excel files:
+Each folder contains two Excel files:
 \itemize{
 \item A file with the suffix \code{plate}: Contains the plate setup and experimental information.
 \item A file with the suffix \code{raw}: Contains fluorescence data exported from MARS software.

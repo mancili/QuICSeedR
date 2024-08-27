@@ -3,7 +3,8 @@
 #' This function takes a plate layout and generates a corresponding matrix of
 #' replicate numbers for each sample.
 #'
-#' @param plate A matrix or data frame representing the plate layout, where each
+#' @param plate 
+#'   A matrix or data frame representing the plate layout, where each
 #'   cell contains a sample identifier or NA for empty wells.
 #'
 #' @return A data frame with the same dimensions as the input plate, where each

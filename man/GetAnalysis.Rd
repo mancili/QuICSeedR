@@ -14,11 +14,22 @@ GetAnalysis(
 )
 }
 \arguments{
-\item{calculation_spread}{A list of data frames, each representing a calculation spread. Output of \code{SpreadCaculation()}.}
+\item{calculation_spread}{A list of data frames, each representing a calculation spread.
+
+Output of \code{SpreadCaculation()}.}
 
 \item{control}{The name or pattern of the control column in each data frame.}
 
-\item{test}{The statistical test to use. Options are "t-test", "wilcox", or "yuen". Default is "wilcox".}
+\item{test}{The statistical test to use. Options are:
+\itemize{
+\item "t-test": Student's t-test, suitable for normally distributed data.
+For more information, run: \code{?stats::t.test}
+\item "wilcox": Wilcoxon rank-sum test (also known as Mann-Whitney U test), a non-parametric test.
+For more information, run: \code{?stats::wilcox.test}
+\item "yuen": Yuen's test for trimmed means, robust against outliers and non-normality.
+For more information, run: \code{?WRS2::yuen}
+}
+Default is "wilcox".}
 
 \item{alternative}{Options are "two.sided", "less", or "greater". Default is "two.sided".}
 
@@ -76,7 +87,4 @@ head(analysis)
 \references{
 Mair, P., & Wilcox, R. (2020). WRS2: A Collection of Robust Statistical Methods.
 https://CRAN.R-project.org/package=WRS2
-}
-\seealso{
-\code{\link[stats]{t.test}}, \code{\link[stats]{wilcox.test}}, \code{\link[WRS2]{yuen}}
 }

@@ -1,6 +1,6 @@
 Package: QuICSeedR
 Title: Analyze Data for Fluorophore-Assisted Seed Amplification Assays
-Date: 2024-08-19
+Date: 2024-08-27
 Version: 0.1.2
 Depends: 
     R (>= 4.1.0)
