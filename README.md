@@ -33,11 +33,11 @@ For more detailed examples and function documentation, please refer to the funct
 
 ## License
 
-This R package for analyzing seed amplification assay data is available under a dual licensing model: it is freely available under the GNU General Public License v3.0 (GPL-3) for open-source use, and a separate commercial license is offered for use cases that require additional rights or support beyond the scope of GPL-3. See the [GPL-3](https://github.com/mancili/QuICSeedR/blob/main/GPL-3) and [LICENSE](https://github.com/mancili/QuICSeedR/blob/main/LICENSE) file for details.
+This R package for analyzing seed amplification assay data is available under a dual licensing model: it is freely available under the GNU General Public License v3.0 (GPL-3) for open-source use, and a separate commercial [LICENSE](https://github.com/mancili/QuICSeedR/blob/main/LICENSE) is offered for use cases that require additional rights or support beyond the scope of GPL-3. 
 
 ## Author
 
-Manci Li
+Manci Li, PhD
 
 ORCID: [0000-0003-3930-7117](https://orcid.org/0000-0003-3930-7117)
 
@@ -46,7 +46,7 @@ ORCID: [0000-0003-3930-7117](https://orcid.org/0000-0003-3930-7117)
 If you use QuICSeedR in your research, please cite it as follows:
 
 ```
-Li, M. (2024). QuICSeedR: Data analysis for fluorophore-assisted seed amplification assays. R package version 0.1.0. https://github.com/mancili/QuICSeedR
+Li, M. (2024). QuICSeedR: Data analysis for fluorophore-assisted seed amplification assays. R package version 0.1.2. https://github.com/mancili/QuICSeedR
 ```
 
 ## Contact
