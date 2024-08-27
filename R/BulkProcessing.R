@@ -26,8 +26,7 @@
 #'     \item combined_cleanraw: Cleaned raw data for each experiment
 #'     \item combined_result: A data frame of combined results from all experiments
 #'   }
-#'
-#' @importFrom rlang %||%
+#' 
 #' @examples
 #' #Get path for example data
 #' path = system.file("extdata", package = "QuICSeedR")
