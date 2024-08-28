@@ -46,7 +46,7 @@ ORCID: [0000-0003-3930-7117](https://orcid.org/0000-0003-3930-7117)
 If you use QuICSeedR in your research, please cite it as follows:
 
 ```
-Li, M. (2024). QuICSeedR: Data analysis for fluorophore-assisted seed amplification assays. R package version 0.1.2. https://github.com/mancili/QuICSeedR
+Li, Manci, Damani N. Bryant, Sarah Gresch, Marissa Milstein, Peter R. Christenson, Stuart S. Lichtenberg, Peter A. Larsen, and Sang-Hyun Oh. 2024. “QuICSeedR: An R Package for Analyzing Fluorophore-Assisted Seed Amplification Assay Data.” bioRxiv. https://doi.org/10.1101/2024.08.27.609919.
 ```
 
 ## Contact
